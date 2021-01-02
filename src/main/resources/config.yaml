@@ -1,0 +1,21 @@
+http:
+  port: "8081"
+
+american:
+  host: "training-gp-design-proxy.us-e2.cloudhub.io"
+  port: "80"
+  basepath: "/"
+  protocol: "HTTP"
+  client_id: "35c724ab89af41de8f0ff5e793e90c50 "
+  client_secret: "85797b6E2Bc548b9A296bFe338AD02a6"
+
+training:
+  host: "ilt.learn.mulesoft.com"
+  port: "80"
+  basepath: "/"
+  protocol: "HTTP"
+
+delta:
+  wsdl: "http://ilt.learn.mulesoft.com/delta?wsdl"
+  service: "TicketServiceService"
+  port: "TicketServicePort"

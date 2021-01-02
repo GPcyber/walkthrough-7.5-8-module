@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:wsc="http://www.mulesoft.org/schema/mule/wsc" xmlns:design-spec-ws="http://www.mulesoft.org/schema/mule/design-spec-ws"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/design-spec-ws http://www.mulesoft.org/schema/mule/design-spec-ws/current/mule-design-spec-ws.xsd
+http://www.mulesoft.org/schema/mule/wsc http://www.mulesoft.org/schema/mule/wsc/current/mule-wsc.xsd">
+	<configuration-properties doc:name="Configuration properties" doc:id="18b72b4a-0ce2-49cb-880b-cb60d2debce7" file="config.yaml" />
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="224808e0-039d-485d-b233-751d19aa4966" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<design-spec-ws:config name="Design_spec_ws_Config" doc:name="Design-spec-ws Config" doc:id="55bf68e1-709e-4264-9d74-a072f9911a5d" property_host="${american.host}" property_port="${american.port}" property_protocol="${american.protocol}" property_basePath="${american.basepath}" />
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="c1a64ee9-1e26-4959-a7a6-b5266997d165" basePath="${training.basepath}" >
+		<http:request-connection host="${training.host}" port="${training.port}" />
+	</http:request-config>
+	<wsc:config name="Delta_Web_Service_Consumer_Config" doc:name="Web Service Consumer Config" doc:id="95dbdbdd-d03c-4929-b675-63c870dd9a7f" >
+		<wsc:connection wsdlLocation="${delta.wsdl}" service="${delta.service}" port="${delta.port}" >
+			<wsc:web-service-security actor="http://schemas.xmlsoap.org/soap/actor/next" />
+		</wsc:connection>
+	</wsc:config>
+
+</mule>
